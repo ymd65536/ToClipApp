@@ -1,0 +1,49 @@
+﻿<Window x:Class="ToClip.MainWindow"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+      xmlns:local="clr-namespace:ToClip"
+      mc:Ignorable="d"
+      Title="クリップボードマネージャ" Height="400" Width="300"
+      ResizeMode="NoResize">
+  <Grid>
+    <StackPanel
+      Margin="10">
+      <TextBox
+      Name="SaveTextBox"
+      VerticalAlignment="Center"
+      Height="24"
+      Width="260"
+      InputMethod.IsInputMethodEnabled="True"
+      TextWrapping="Wrap" />
+
+      <Grid>
+        <Button
+          Name="RegisterClipText"
+          HorizontalAlignment="Right"
+          Margin="0,10,0,0"
+          Width="60"
+          Click="RegisterClipText_Click">
+        登録
+        </Button>
+
+        <Button
+          Name="DeleteClipText"
+          Margin="70,10,0,0"
+          Width="60"
+          Click="DeleteClipText_Click">
+        削除
+        </Button>
+      </Grid>
+
+      <ListBox 
+      Name="ClipList"
+      Margin="0,10,0,0"
+      VerticalAlignment="Center"
+      Width="260"
+      SelectionChanged ="ClipList_SelectionChanged">
+      </ListBox>
+    </StackPanel>
+  </Grid>
+</Window>
