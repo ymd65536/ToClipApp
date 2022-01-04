@@ -27,7 +27,6 @@ namespace ToClip
       if (!(this.SaveTextBox.Text == ""))
       {
         this.ClipList.Items.Add(SaveTextBox.Text.ToString());
-        this.SaveTextBox.Text = "";
         this.AppStatus.Content = this.RegisterClipBtn.Content.ToString();
       }
     }
