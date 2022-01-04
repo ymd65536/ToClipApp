@@ -34,6 +34,10 @@ namespace ToClip
     {
       MessageBox.Show("削除");
     }
+    private void ClipList_SelectionChanged(object sender, System.Windows.RoutedEventArgs e)
+    {
+      this.SaveTextBox.Text = this.ClipList.SelectedItem.ToString();
+    }
 
   }
 }
