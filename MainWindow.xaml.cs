@@ -35,17 +35,25 @@ namespace ToClip
     {
       ListBox ClipListObj = this.ClipList;
 
+      ClipSelectIndex = ClipListObj.SelectedIndex;
+
       if (ClipListObj.SelectedIndex < 0)
       {
         return;
       }
-
-      ClipSelectIndex = ClipListObj.Items.Count;
-      if (ClipSelectIndex > 0)
+      else
       {
-        ClipListObj.Items.Remove(ClipListObj.SelectedItem.ToString());
-        this.AppStatus.Content = this.DeleteClipBtn.Content.ToString();
-        return;
+        ClipListObj.Items.RemoveAt(ClipSelectIndex);
+        if (ClipListObj.Items.Count >= 0)
+        {
+          this.AppStatus.Content = this.DeleteClipBtn.Content.ToString();
+          ClipListObj.SelectedIndex = 0;
+          return;
+        }
+        else
+        {
+          return;
+        }
       }
     }
     private void ClipList_SelectionChanged(object sender, System.Windows.RoutedEventArgs e)
