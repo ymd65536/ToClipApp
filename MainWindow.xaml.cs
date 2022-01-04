@@ -33,7 +33,7 @@ namespace ToClip
     }
     private void DeleteClipBtn_Click(object sender, System.Windows.RoutedEventArgs e)
     {
-      MessageBox.Show("削除");
+      this.AppStatus.Content = this.DeleteClipBtn.Content.ToString();
     }
     private void ClipList_SelectionChanged(object sender, System.Windows.RoutedEventArgs e)
     {
