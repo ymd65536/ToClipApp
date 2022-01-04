@@ -31,7 +31,7 @@ namespace ToClip
         this.AppStatus.Content = this.RegisterClipBtn.Content.ToString();
       }
     }
-    private void DeleteClipText_Click(object sender, System.Windows.RoutedEventArgs e)
+    private void DeleteClipBtn_Click(object sender, System.Windows.RoutedEventArgs e)
     {
       MessageBox.Show("削除");
     }

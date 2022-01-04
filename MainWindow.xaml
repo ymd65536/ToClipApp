@@ -29,10 +29,10 @@
         </Button>
 
         <Button
-          Name="DeleteClipText"
+          Name="DeleteClipBtn"
           Margin="70,10,0,0"
           Width="60"
-          Click="DeleteClipText_Click">
+          Click="DeleteClipBtn_Click">
         削除
         </Button>
       </Grid>
