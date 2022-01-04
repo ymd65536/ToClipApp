@@ -22,12 +22,13 @@ namespace ToClip
     {
       InitializeComponent();
     }
-    private void RegisterClipText_Click(object sender, System.Windows.RoutedEventArgs e)
+    private void RegisterClipBtn_Click(object sender, System.Windows.RoutedEventArgs e)
     {
       if (!(this.SaveTextBox.Text == ""))
       {
         this.ClipList.Items.Add(SaveTextBox.Text.ToString());
         this.SaveTextBox.Text = "";
+        this.AppStatus.Content = this.RegisterClipBtn.Content.ToString();
       }
     }
     private void DeleteClipText_Click(object sender, System.Windows.RoutedEventArgs e)
