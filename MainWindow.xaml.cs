@@ -69,7 +69,7 @@ namespace ToClip
       {
         this.SaveTextBox.Text = this.ClipList.SelectedItem.ToString();
         Clipboard.SetText(this.ClipList.SelectedItem.ToString());
-        this.AppStatus.Content = "クリップボードにコピーしました。";
+        this.AppStatus.Content = Clipboard.GetText() + "をクリップボードにコピーしました。";
       }
     }
 
