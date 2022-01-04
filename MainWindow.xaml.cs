@@ -30,6 +30,10 @@ namespace ToClip
         this.SaveTextBox.Text = "";
       }
     }
+    private void DeleteClipText_Click(object sender, System.Windows.RoutedEventArgs e)
+    {
+      MessageBox.Show("削除");
+    }
 
   }
 }
