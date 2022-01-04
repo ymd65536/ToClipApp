@@ -38,6 +38,8 @@ namespace ToClip
     private void ClipList_SelectionChanged(object sender, System.Windows.RoutedEventArgs e)
     {
       this.SaveTextBox.Text = this.ClipList.SelectedItem.ToString();
+      Clipboard.SetText(this.ClipList.SelectedItem.ToString());
+      this.AppStatus.Content = "クリップボードにコピーしました。";
     }
 
   }
