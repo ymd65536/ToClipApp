@@ -46,7 +46,7 @@
       </ListBox>
     </StackPanel>
     <StatusBar VerticalAlignment="Bottom">
-      <Label Name="AppStatus" Content="処理しています..."/>
+      <Label Name="AppStatus" Content=""/>
     </StatusBar>
   </Grid>
 </Window>
