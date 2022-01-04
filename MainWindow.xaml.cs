@@ -15,9 +15,9 @@ using System.Windows.Shapes;
 
 namespace ToClip
 {
-
   public partial class MainWindow : Window
   {
+    private int ClipSelectIndex;
     public MainWindow()
     {
       InitializeComponent();
@@ -33,13 +33,37 @@ namespace ToClip
     }
     private void DeleteClipBtn_Click(object sender, System.Windows.RoutedEventArgs e)
     {
-      this.AppStatus.Content = this.DeleteClipBtn.Content.ToString();
+      ListBox ClipListObj = this.ClipList;
+
+      if (ClipListObj.SelectedIndex < 0)
+      {
+        return;
+      }
+
+      ClipSelectIndex = ClipListObj.Items.Count;
+      if (ClipSelectIndex > 0)
+      {
+        ClipListObj.Items.Remove(ClipListObj.SelectedItem.ToString());
+        this.AppStatus.Content = this.DeleteClipBtn.Content.ToString();
+        return;
+      }
     }
     private void ClipList_SelectionChanged(object sender, System.Windows.RoutedEventArgs e)
     {
-      this.SaveTextBox.Text = this.ClipList.SelectedItem.ToString();
-      Clipboard.SetText(this.ClipList.SelectedItem.ToString());
-      this.AppStatus.Content = "クリップボードにコピーしました。";
+      ListBox ClipListObj = this.ClipList;
+
+      if (ClipListObj.SelectedIndex < 0)
+      {
+        return;
+      }
+
+      ClipSelectIndex = ClipList.Items.Count;
+      if (ClipSelectIndex > 0)
+      {
+        this.SaveTextBox.Text = this.ClipList.SelectedItem.ToString();
+        Clipboard.SetText(this.ClipList.SelectedItem.ToString());
+        this.AppStatus.Content = "クリップボードにコピーしました。";
+      }
     }
 
   }
