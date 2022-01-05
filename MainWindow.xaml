@@ -5,7 +5,7 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
       xmlns:local="clr-namespace:ToClip"
       mc:Ignorable="d"
-      Title="クリップボードマネージャ" Height="400" Width="300"
+      Title="クリップボードマネージャ" Height="400" Width="320"
       ResizeMode="NoResize">
   <Grid>
     <ScrollViewer>
