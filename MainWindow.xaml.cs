@@ -69,11 +69,10 @@ namespace ToClip
       }
       else
       {
-        ClipListObj.Items.RemoveAt(ClipSelectIndex);
         if (ClipListObj.Items.Count >= 0)
         {
+          ClipListObj.Items.RemoveAt(ClipSelectIndex);
           this.AppStatus.Content = this.DeleteClipBtn.Content.ToString();
-          ClipListObj.SelectedIndex = 0;
           return;
         }
         else
