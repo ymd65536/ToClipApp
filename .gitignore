@@ -2,3 +2,4 @@ bin
 obj
 clipdata.txt
 clipdata.csv
+!data
