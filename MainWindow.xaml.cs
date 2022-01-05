@@ -49,6 +49,11 @@ namespace ToClip
       if (!(this.SaveTextBox.Text == ""))
       {
         this.ClipList.Items.Add(SaveTextBox.Text.ToString());
+        FileStream WriterSr = new FileStream(ClipDataTxt, FileMode.Append);
+        StreamWriter wClipData = new StreamWriter(WriterSr);
+        wClipData.WriteLine(SaveTextBox.Text.ToString());
+        wClipData.Close();
+        WriterSr.Close();
         this.AppStatus.Content = this.RegisterClipBtn.Content.ToString();
       }
     }
