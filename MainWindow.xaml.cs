@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -18,9 +19,30 @@ namespace ToClip
   public partial class MainWindow : Window
   {
     private int ClipSelectIndex;
+    private ListBox ClipListObj;
+    private String ClipDataTxt;
     public MainWindow()
     {
       InitializeComponent();
+      ClipListObj = this.ClipList;
+      ClipDataTxt = System.Environment.CurrentDirectory + "\\data\\ClipData.txt";
+
+      if (File.Exists(ClipDataTxt))
+      {
+        StreamReader rClipData = new StreamReader(ClipDataTxt);
+        string line;
+        while ((line = rClipData.ReadLine()) != null)
+        {
+          ClipListObj.Items.Add(line);
+        }
+        rClipData.Close();
+      }
+      else
+      {
+        StreamWriter wClipData = new StreamWriter(ClipDataTxt);
+        wClipData.Write("");
+        wClipData.Close();
+      }
     }
     private void RegisterClipBtn_Click(object sender, System.Windows.RoutedEventArgs e)
     {
@@ -32,7 +54,7 @@ namespace ToClip
     }
     private void DeleteClipBtn_Click(object sender, System.Windows.RoutedEventArgs e)
     {
-      ListBox ClipListObj = this.ClipList;
+      ClipListObj = this.ClipList;
 
       ClipSelectIndex = ClipListObj.SelectedIndex;
 
@@ -57,7 +79,7 @@ namespace ToClip
     }
     private void ClipList_SelectionChanged(object sender, System.Windows.RoutedEventArgs e)
     {
-      ListBox ClipListObj = this.ClipList;
+      ClipListObj = this.ClipList;
 
       if (ClipListObj.SelectedIndex < 0)
       {
