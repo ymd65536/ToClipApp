@@ -8,44 +8,49 @@
       Title="クリップボードマネージャ" Height="400" Width="300"
       ResizeMode="NoResize">
   <Grid>
-    <StackPanel
-      Margin="10">
-      <TextBox
-      Name="SaveTextBox"
-      VerticalAlignment="Center"
-      Height="24"
-      Width="260"
-      InputMethod.IsInputMethodEnabled="True"
-      TextWrapping="Wrap" />
+    <ScrollViewer>
+      <StackPanel
+        Margin="10">
+        <TextBox
+        Name="SaveTextBox"
+        VerticalAlignment="Center"
+        Height="24"
+        Width="260"
+        InputMethod.IsInputMethodEnabled="True"
+        TextWrapping="Wrap" />
 
-      <Grid>
-        <Button
-          Name="RegisterClipBtn"
-          HorizontalAlignment="Right"
-          Margin="0,10,0,0"
-          Width="60"
-          Click="RegisterClipBtn_Click">
-        登録
-        </Button>
+        <Grid>
+          <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+          </Grid.RowDefinitions>
+          <Button
+            Name="RegisterClipBtn"
+            HorizontalAlignment="Right"
+            Margin="0,10,0,0"
+            Width="60"
+            Click="RegisterClipBtn_Click">
+          登録
+          </Button>
 
-        <Button
-          Name="DeleteClipBtn"
-          Margin="70,10,0,0"
-          Width="60"
-          Click="DeleteClipBtn_Click">
-        削除
-        </Button>
-      </Grid>
+          <Button
+            Name="DeleteClipBtn"
+            Margin="70,10,0,0"
+            Width="60"
+            Click="DeleteClipBtn_Click">
+          削除
+          </Button>
+        </Grid>
 
-      <ListBox 
-      Grid.Row="0" 
-      Name="ClipList"
-      Margin="0,10,0,0"
-      VerticalAlignment="Center"
-      Width="260"
-      SelectionChanged ="ClipList_SelectionChanged">
-      </ListBox>
-    </StackPanel>
+        <ListBox 
+        Grid.Row="0" 
+        Name="ClipList"
+        Margin="0,10,0,0"
+        VerticalAlignment="Center"
+        Width="260"
+        SelectionChanged ="ClipList_SelectionChanged">
+        </ListBox>
+      </StackPanel>
+    </ScrollViewer>
     <StatusBar VerticalAlignment="Bottom">
       <Label Name="AppStatus" Content=""/>
     </StatusBar>
