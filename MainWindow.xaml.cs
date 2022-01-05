@@ -25,7 +25,7 @@ namespace ToClip
     {
       InitializeComponent();
       ClipListObj = this.ClipList;
-      ClipDataTxt = System.Environment.CurrentDirectory + "\\data\\ClipData.txt";
+      ClipDataTxt = System.Environment.CurrentDirectory + "\\data\\ClipData.csv";
 
       if (File.Exists(ClipDataTxt))
       {
