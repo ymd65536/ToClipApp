@@ -72,6 +72,36 @@ namespace ToClip
         if (ClipListObj.Items.Count >= 0)
         {
           ClipListObj.Items.RemoveAt(ClipSelectIndex);
+
+          String ClipDataTmpFile = Environment.CurrentDirectory + "\\data\\ClipDataTmp.txt";
+
+          // ClipData.txt のコピー
+          File.Copy(ClipDataTxt, ClipDataTmpFile);
+
+          // ClipDataTmp.txt を初期化
+          FileStream fs = new FileStream(ClipDataTmpFile, FileMode.Create);
+          StreamWriter wClipData = new StreamWriter(fs);
+          wClipData.Write("");
+          wClipData.Close();
+          fs.Close();
+
+          // ClipDataTmp.txt に現在のListBox値を出力
+          fs = new FileStream(ClipDataTmpFile, FileMode.Append);
+          wClipData = new StreamWriter(fs);
+
+          foreach (String ListItem in ClipListObj.Items)
+          {
+            wClipData.WriteLine(ListItem.ToString());
+          }
+          wClipData.Close();
+          fs.Close();
+
+          // 問題なく出力が完了したらClipData.txt を削除
+          File.Delete(ClipDataTxt);
+
+          // ClipDataTmp.txt を ClipData.txt にリネーム
+          File.Move(ClipDataTmpFile, ClipDataTxt);
+
           this.AppStatus.Content = this.DeleteClipBtn.Content.ToString();
           return;
         }
